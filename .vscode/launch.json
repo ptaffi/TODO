@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "main",
+      "request": "launch",
+      "mainClass": "main",
+      "projectName": "TODO_a7c4bd80"
+    },
+    {
+      "type": "java",
+      "name": "MainFrame",
+      "request": "launch",
+      "mainClass": "GUI.MainFrame",
+      "projectName": "TODO_a7c4bd80"
+    },
+    {
+      "type": "java",
+      "name": "LoginGUI",
+      "request": "launch",
+      "mainClass": "GUI.LoginGUI",
+      "projectName": "TODO_a7c4bd80"
+    },
+    {
+      "type": "java",
+      "name": "DatabaseConnection",
+      "request": "launch",
+      "mainClass": "util.DatabaseConnection",
+      "projectName": "TODO_a7c4bd80"
+    }
+  ]
+}
