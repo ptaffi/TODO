@@ -30,6 +30,6 @@ public class User {
 
     @Override
     public String toString() {
-        return username; // tiện hiển thị trên UI
+        return username; 
     }
 }
