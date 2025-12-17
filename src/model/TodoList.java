@@ -24,6 +24,6 @@ public class TodoList {
 
     @Override
     public String toString() {
-        return name; // để JList hiện tên list
+        return name; 
     }
 }
