@@ -36,13 +36,13 @@ public class ShareDAO {
                 ps.executeUpdate();
                 return code;
             } catch (SQLIntegrityConstraintViolationException dup) {
-                // trùng UNIQUE -> gen lại
+                // trùng unique -> gen lại
             }
         }
-        throw new SQLException("Không tạo được share code (trùng quá nhiều).");
+        throw new SQLException("Không tạo được share code.");
     }
 
-    // Accept code theo kiểu COPY list + tasks sang user nhận
+    // accept
     public static int acceptShareAndCopy(String code, int receiverId) throws SQLException {
         String getShareSql = """
             SELECT s.list_id, l.name AS list_name
@@ -56,7 +56,7 @@ public class ShareDAO {
         String selectTasksSql = "SELECT title, note, completed, due_date FROM tasks WHERE list_id = ?";
         String insertTaskSql = "INSERT INTO tasks (title, note, completed, due_date, list_id) VALUES (?, ?, ?, ?, ?)";
 
-        // dùng 1 lần rồi xoá code 
+        //code dùng 1 lần 
         String deleteCode = "DELETE FROM shares WHERE share_code = ?";
 
         try (Connection conn = DatabaseConnection.getConnection()) {
