@@ -87,7 +87,7 @@ public class ShareDAO {
                     }
                 }
 
-                // 3) copy tasks
+                // copy tasks
                 try (PreparedStatement psSelect = conn.prepareStatement(selectTasksSql)) {
                     psSelect.setInt(1, srcListId);
 
@@ -109,7 +109,7 @@ public class ShareDAO {
                         psInsert.executeBatch();
                     }
                 }
-                // 4) xoá code
+                // xoá code
                 try (PreparedStatement ps = conn.prepareStatement(deleteCode)) {
                     ps.setString(1, code);
                     ps.executeUpdate();
