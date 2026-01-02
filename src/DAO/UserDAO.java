@@ -142,7 +142,7 @@ public class UserDAO {
                 ps2.executeUpdate();
 
                 conn.commit();
-                return otp; // trả OTP gốc để GUI gửi mail
+                return otp; 
             } catch (SQLException ex) {
                 conn.rollback();
                 throw ex;
@@ -232,8 +232,6 @@ public class UserDAO {
             }
         }
     }
-
-  //forgot pass
 
     public static boolean changePassword(int userId, String oldPass, String newPass) throws SQLException {
         String check = "SELECT 1 FROM `user` WHERE id = ? AND password = ? LIMIT 1";

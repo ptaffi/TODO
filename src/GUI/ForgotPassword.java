@@ -12,7 +12,6 @@ public class ForgotPassword extends JDialog {
     private JTextField txtCode = new JTextField();
     private JPasswordField txtNewPass = new JPasswordField();
     private JPasswordField txtNewPass2 = new JPasswordField();
-
     private JButton btnSend = new JButton("Gửi OTP");
     private JButton btnReset = new JButton("Đổi mật khẩu");
 
@@ -121,7 +120,7 @@ public class ForgotPassword extends JDialog {
             dispose();
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Lỗi đổi mật khẩu: " + ex.getMessage());
+            JOptionPane.showMessageDialog(this, "Đổi mật khẩu k thành công: " + ex.getMessage());
             ex.printStackTrace();
         }
     }

@@ -27,10 +27,8 @@ public class SidebarPanel extends JPanel {
     }
 
     private final Listener listener;
-
     private final DefaultListModel<TodoList> listModel = new DefaultListModel<>();
     private final JList<TodoList> listJList = new JList<>(listModel);
-
     private JButton btnNewList;
 
     // profile UI

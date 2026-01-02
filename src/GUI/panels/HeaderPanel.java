@@ -15,10 +15,8 @@ public class HeaderPanel extends JPanel {
     }
 
     private final Listener listener;
-
     private JLabel Title;
     private JLabel Date;
-
     private JButton btnShare;
     private JButton btnRename;
     private JButton btnDelete;

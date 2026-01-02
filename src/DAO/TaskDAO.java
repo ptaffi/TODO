@@ -63,7 +63,7 @@ public class TaskDAO {
             }
         }
     }
-    //sửa 
+
     public static boolean update(int taskId, String title, String note, boolean completed, Date dueDate) throws SQLException {
         String sql = """
             UPDATE tasks

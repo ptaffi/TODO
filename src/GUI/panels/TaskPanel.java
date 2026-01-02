@@ -20,10 +20,8 @@ public class TaskPanel extends JPanel {
     }
 
     private final Listener listener;
-
     private final DefaultListModel<Task> taskModel = new DefaultListModel<>();
     private final JList<Task> taskJList = new JList<>(taskModel);
-
     private JButton btnAddTask;
 
     public TaskPanel(Listener listener) {
