@@ -2,7 +2,6 @@ package GUI;
 
 import DAO.UserDAO;
 import util.MailService;
-
 import javax.swing.*;
 import java.awt.*;
 

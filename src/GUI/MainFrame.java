@@ -25,11 +25,9 @@ public class MainFrame extends JFrame
     private final int userId;
     private final String userName;
     private final String email;
-
     private SidebarPanel sidebar;
     private HeaderPanel header;
     private TaskPanel taskPanel;
-
     private TodoList selectedList;
 
     public static final Color BG_APP   = new Color(250, 245, 250);

@@ -1,7 +1,6 @@
 package GUI;
 
 import DAO.UserDAO;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,7 +9,6 @@ public class ChangePassword extends JDialog {
     private JPasswordField txtOld = new JPasswordField();
     private JPasswordField txtNew1 = new JPasswordField();
     private JPasswordField txtNew2 = new JPasswordField();
-
     private boolean ok = false;
 
     public ChangePassword(Window owner, int userId) {

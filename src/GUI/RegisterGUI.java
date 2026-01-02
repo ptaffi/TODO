@@ -2,7 +2,6 @@ package GUI;
 
 import DAO.UserDAO;
 import com.formdev.flatlaf.FlatLightLaf;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -16,7 +15,6 @@ public class RegisterGUI extends JFrame {
     private JPasswordField txtPass2;
     private JButton btnRegister;
     private JButton btnBack;
-
     private static final Color PRIMARY = new Color(188, 143, 187);
     private static final Color BG = new Color(250, 245, 250);
     private static final Font FONT = new Font("Segoe UI", Font.PLAIN, 14);
