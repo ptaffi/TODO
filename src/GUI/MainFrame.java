@@ -33,7 +33,7 @@ public class MainFrame extends JFrame
     private TodoList selectedList;
 
     public static final Color BG_APP   = new Color(250, 245, 250);
-    public static final Color BG_PANEL = new Color(245, 232, 245);
+    public static final Color BG_PANEL = new Color(245, 235, 245);
     public static final Color BG_HEADER = new Color(188, 143, 187);
     public static final Color FG_TEXT  = new Color(188, 143, 187);
     public static final Color FG_MUTED = new Color(0, 0, 0);
@@ -155,6 +155,10 @@ public class MainFrame extends JFrame
             JOptionPane.showMessageDialog(this, "Create list failed: " + ex.getMessage());
             ex.printStackTrace();
         }
+    }
+    @Override
+    public void onChangePassword() {
+    new GUI.ChangePassword(this, userId).setVisible(true);
     }
 
     @Override

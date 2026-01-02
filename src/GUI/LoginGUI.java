@@ -2,10 +2,12 @@ package GUI;
 
 import com.formdev.flatlaf.FlatLightLaf;
 import DAO.UserDAO;
+import GUI.RegisterGUI.TranslucentCard;
 import model.User;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import GUI.ForgotPassword;
 // import java.awt.image.BufferedImage;
 // import java.io.IOException;
 
@@ -72,7 +74,7 @@ public class LoginGUI extends JFrame {
         setContentPane(bg);
     }
 
-    private JPanel createLoginCard() {
+     private JPanel createLoginCard() {
         TranslucentCard card = new TranslucentCard(0.92f, 22); // opacity, radius
         card.setLayout(new GridBagLayout());
         card.setPreferredSize(new Dimension(520, 420));
@@ -114,7 +116,7 @@ public class LoginGUI extends JFrame {
         lblPass.setFont(FONT_BOLD);
         lblPass.setForeground(TEXT_COLOR);
         gbc.gridy = 3;
-        gbc.insets = new Insets(8, 10, 6, 10);
+        gbc.insets = new Insets(0, 10, 6, 10);
         card.add(lblPass, gbc);
 
         txtPass = new JPasswordField();
@@ -123,8 +125,25 @@ public class LoginGUI extends JFrame {
         txtPass.putClientProperty("JPasswordField.showRevealButton", true);
         txtPass.setFont(FONT_PLAIN);
         gbc.gridy = 4;
-        gbc.insets = new Insets(0, 10, 18, 10);
+        gbc.insets = new Insets(0, 10, 2, 10);
         card.add(txtPass, gbc);
+
+        //forgot pass
+        gbc.gridwidth = 1;
+        gbc.gridx = 0;
+        JLabel lblForgotPassword = new JLabel("<html><u>Quên mật khẩu?</u></html>", SwingConstants.LEFT);
+        lblForgotPassword.setFont(FONT_PLAIN);
+        lblForgotPassword.setForeground(TEXT_COLOR);
+        lblForgotPassword.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        gbc.gridy = 5;
+        gbc.insets = new Insets(0, 10, 5, 10);
+        card.add(lblForgotPassword, gbc);
+        lblForgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent e) {
+            new GUI.ForgotPassword(LoginGUI.this).setVisible(true);
+        }
+    });
 
         // Button
         btnLogin = new JButton("ĐĂNG NHẬP");
@@ -134,9 +153,28 @@ public class LoginGUI extends JFrame {
         btnLogin.setFont(new Font("Segoe UI", Font.BOLD, 16));
         btnLogin.setFocusPainted(false);
         btnLogin.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        gbc.gridy = 5;
-        gbc.insets = new Insets(22, 10, 5, 10);
+        gbc.gridy = 6;
+        gbc.insets = new Insets(15, 10, 5, 10);
         card.add(btnLogin, gbc);
+
+       // Register 
+        JLabel lblRegister = new JLabel("<html>Chưa có tài khoản? <span style='text-decoration:underline;'>Đăng ký</span></html>");
+        lblRegister.setForeground(TEXT_COLOR);
+        lblRegister.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        lblRegister.setHorizontalAlignment(SwingConstants.CENTER);
+        lblRegister.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+
+        lblRegister.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                dispose();
+                EventQueue.invokeLater(() -> new RegisterGUI().setVisible(true));
+            }
+        });
+
+        gbc.gridy = 7;                 
+        gbc.insets = new Insets(8, 10, 0, 10);
+        card.add(lblRegister, gbc);
 
         return card;
     }
@@ -167,9 +205,9 @@ public class LoginGUI extends JFrame {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin!", "Thông báo", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        // JOptionPane.showMessageDialog(this, "OK (demo)", "Message", JOptionPane.INFORMATION_MESSAGE);
+    
      try {
-        User u = UserDAO.login(identifier, pass); // login trả về User 
+        User u = UserDAO.login(identifier, pass); 
 
         if (u != null) {
             int userId = u.getId(); 

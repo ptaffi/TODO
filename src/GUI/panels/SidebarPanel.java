@@ -23,6 +23,7 @@ public class SidebarPanel extends JPanel {
         void onLogout();
 
         default void onOpenProfile() {}
+        default void onChangePassword() {} 
     }
 
     private final Listener listener;
@@ -179,12 +180,15 @@ public class SidebarPanel extends JPanel {
         // menu profile
         JPopupMenu menu = new JPopupMenu();
         JMenuItem miProfile = new JMenuItem("Profile");
+        JMenuItem miChangePass = new JMenuItem("Change password");
         JMenuItem miLogout = new JMenuItem("Logout");
         menu.add(miProfile);
+        menu.add(miChangePass);
         menu.addSeparator();
         menu.add(miLogout);
 
         miProfile.addActionListener(e -> listener.onOpenProfile());
+        miChangePass.addActionListener(e -> listener.onChangePassword());
         miLogout.addActionListener(e -> listener.onLogout());
 
         MouseAdapter openMenu = new MouseAdapter() {

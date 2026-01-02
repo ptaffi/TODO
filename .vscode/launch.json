@@ -2,6 +2,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "app",
+      "request": "launch",
+      "mainClass": "app",
+      "projectName": "TODO_a7c4bd80"
+    },
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "TODO_a7c4bd80"
+    },
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "GUI.App",
+      "projectName": "TODO_a7c4bd80"
+    },
+    {
+      "type": "java",
+      "name": "RegisterGUI",
+      "request": "launch",
+      "mainClass": "GUI.RegisterGUI",
+      "projectName": "TODO_a7c4bd80"
+    },
+    {
+      "type": "java",
       "name": "main",
       "request": "launch",
       "mainClass": "main",

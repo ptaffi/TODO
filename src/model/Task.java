@@ -7,7 +7,7 @@ public class Task {
     private String title;
     private String note;
     private boolean completed;
-    private Date dueDate;   // DATE (có thể null)
+    private Date dueDate;  //có thể null
     private int listId;
 
     public Task() {}

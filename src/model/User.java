@@ -14,6 +14,11 @@ public class User {
         this.password = password;
         this.email = email;
     }
+      public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
 
     // getters/setters
     public int getId() { return id; }
@@ -30,6 +35,6 @@ public class User {
 
     @Override
     public String toString() {
-        return username; // tiện hiển thị trên UI
+        return username; 
     }
 }

@@ -92,8 +92,8 @@ public class TodoListCellRenderer extends DefaultListCellRenderer {
         int c = counts == null ? 0 : counts.getOrDefault(tl.getId(), 0);
 
         lb.setText(tl.getName() + "   (" + c + ")");
-        lb.setBorder(new EmptyBorder(10, 12, 10, 12));
-        lb.setFont(new Font("Segoe UI", Font.BOLD, 20));
+        lb.setBorder(new EmptyBorder(15, 12, 0, 12));
+        lb.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 
         lb.setForeground(MainFrame.FG_TEXT);
         lb.setBackground(isSelected ? new Color(255, 255, 255, 18) : MainFrame.BG_PANEL);

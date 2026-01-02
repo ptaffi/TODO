@@ -1,35 +1,35 @@
 use dbtodo; 
 
 CREATE TABLE IF NOT EXISTS user (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    email VARCHAR(100)
+    id int AUTO_INCREMENT PRIMARY KEY,
+    username varchar(50) UNIQUE NOT NULL,
+    password varchar(255) NOT NULL,
+    email varchar(100)
 );
 
 CREATE TABLE IF NOT EXISTS todo_list (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    user_id INT,
+    id int AUTO_INCREMENT PRIMARY KEY,
+    name varchar(100) NOT NULL,
+    user_id int,
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS tasks (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    note TEXT,
+    id int AUTO_INCREMENT PRIMARY KEY,
+    title varchar(255) NOT NULL,
+    note text,
     completed BOOLEAN DEFAULT FALSE,
-    due_date DATE,
-    list_id INT,
+    due_date date,
+    list_id int,
     FOREIGN KEY (list_id) REFERENCES todo_list(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS shares (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  share_code VARCHAR(12) NOT NULL,
-  list_id INT NOT NULL,
-  owner_id INT NOT NULL,
-  expires_at DATETIME NOT NULL,
+  id int AUTO_INCREMENT PRIMARY KEY,
+  share_code varchar(12) NOT NULL,
+  list_id int NOT NULL,
+  owner_id int NOT NULL,
+  expires_at datetime NOT NULL,
 
   UNIQUE KEY uq_code (share_code),
   INDEX idx_shares_list_id (list_id),
@@ -44,6 +44,21 @@ CREATE TABLE IF NOT EXISTS shares (
     FOREIGN KEY (owner_id) REFERENCES user(id)
     ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS password_reset (
+  id int AUTO_INCREMENT PRIMARY KEY,
+  user_id int NOT NULL,
+  code_hash varchar(64) NOT NULL,
+  expires_at datetime NOT NULL,
+  used boolean default false,
+  created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX (user_id),
+  INDEX (expires_at),
+  CONSTRAINT fk_reset_user
+    FOREIGN KEY (user_id) REFERENCES `user`(id)
+    ON DELETE CASCADE
+);
+
 
   -- INSERT INTO user (username, password, email) VALUES
   -- ('pva', '123456', 'pva@gmail.com'),

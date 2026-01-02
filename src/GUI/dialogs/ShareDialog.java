@@ -106,12 +106,12 @@ public class ShareDialog extends JDialog {
         btnAccept.addActionListener(e -> {
             String code = txtAccept.getText().trim();
             if (code.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Nhập code trước.");
+                JOptionPane.showMessageDialog(this, "Nhập code.");
                 return;
             }
             try {
                 ShareDAO.acceptShareAndCopy(code, userId);
-                JOptionPane.showMessageDialog(this, "OK! Đã copy list về tài khoản.");
+                JOptionPane.showMessageDialog(this, "Đã copy list về tài khoản.");
                 dispose();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Accept failed: " + ex.getMessage());
